@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'custom_widgets/icon_content.dart';
 import 'custom_widgets/reuseable_card.dart';
+import 'custom_widgets/constants.dart';
 
-const bottomContainerHeight = 80.0;
-const bottomContainerColour = 0xFFEB1555;
-const cardColour = 0xFF1D1E33;
+enum Gender { male, female }
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -15,6 +14,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Gender? selectedGender;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,33 +25,47 @@ class _InputPageState extends State<InputPage> {
             children: [
               Expanded(
                 child: ReusableCard(
-                  Color(cardColour),
-                  IconContent(FontAwesomeIcons.mars, 'MALE'),
-                ),
+                    selectedGender == Gender.male
+                        ? Color(cardColour)
+                        : Color(inactiveColour),
+                    IconContent(FontAwesomeIcons.mars, 'MALE'), () {
+                  setState(() {
+                    selectedGender = Gender.male;
+                  });
+                }),
               ),
               Expanded(
                 child: ReusableCard(
-                  Color(cardColour),
-                  IconContent(FontAwesomeIcons.venus, 'FEMALE'),
-                ),
+                    selectedGender == Gender.female
+                        ? Color(cardColour)
+                        : Color(inactiveColour),
+                    IconContent(FontAwesomeIcons.venus, 'FEMALE'), () {
+                  setState(() {
+                    selectedGender = Gender.female;
+                  });
+                }),
               ),
             ],
           ),
         ),
         Expanded(
-          child: ReusableCard(Color(cardColour)),
+          child: ReusableCard(
+            Color(cardColour),
+            
+          ),
+          
         ),
         Expanded(
             child: Row(
-              children: [
-                Expanded(
-                  child: ReusableCard(Color(cardColour)),
-                ),
-                Expanded(
-                  child: ReusableCard(Color(cardColour)),
-                )
-              ],
-            )),
+          children: [
+            Expanded(
+              child: ReusableCard(Color(cardColour)),
+            ),
+            Expanded(
+              child: ReusableCard(Color(cardColour)),
+            )
+          ],
+        )),
         Container(
           color: Color(bottomContainerColour),
           margin: EdgeInsets.all(10.0),
@@ -61,6 +76,3 @@ class _InputPageState extends State<InputPage> {
     );
   }
 }
-
-
-
