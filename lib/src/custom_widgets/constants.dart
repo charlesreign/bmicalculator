@@ -9,3 +9,12 @@ const labelTextStyle = TextStyle(
   fontSize: 18.0,
   color: Color(0xFF8D8E98),
 );
+
+const numberTextStyle = TextStyle(
+    fontSize: 50.0, fontWeight: FontWeight.w900, color: Color(0xFFFFFFFF));
+
+const largeTextButton =
+    TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 30);
+
+const titleTextStyle =
+    TextStyle(color: Colors.white, fontSize: 45, fontWeight: FontWeight.bold);
