@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'custom_widgets/constants.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({Key? key}) : super(key: key);
+  ResultPage(this.bmiResult, this.resultText, this.interpretation);
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +21,12 @@ class ResultPage extends StatelessWidget {
         children: [
           Expanded(
               child: Container(
-                padding: EdgeInsets.all(15.0),
-                alignment: Alignment.bottomLeft,
+                  padding: EdgeInsets.all(15.0),
+                  alignment: Alignment.bottomLeft,
                   child: Text(
-            'Your Result',
-            style: titleTextStyle,
-          ))),
+                    'Your Result',
+                    style: titleTextStyle,
+                  ))),
           Expanded(
             flex: 5,
             child: ReusableCard(
@@ -32,10 +35,10 @@ class ResultPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text('Normal', style: resultTextStyle),
-                  Text('25', style: BMITextStyle),
+                  Text(resultText, style: resultTextStyle),
+                  Text(bmiResult, style: BMITextStyle),
                   Text(
-                    'Your BMI result is quite low, you should eat offen',
+                    interpretation,
                     style: bodyTextStyle,
                     textAlign: TextAlign.center,
                   )
