@@ -17,4 +17,12 @@ const largeTextButton =
     TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 30);
 
 const titleTextStyle =
-    TextStyle(color: Colors.white, fontSize: 45, fontWeight: FontWeight.bold);
+    TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold);
+
+const resultTextStyle = TextStyle(
+    color: Color(0xFF24D876), fontSize: 22, fontWeight: FontWeight.bold);
+
+const BMITextStyle =
+    TextStyle(fontSize: 90, fontWeight: FontWeight.bold, color: Colors.white);
+
+const bodyTextStyle = TextStyle(fontSize: 22.0, color: Colors.white);

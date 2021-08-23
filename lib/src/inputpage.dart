@@ -4,6 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'custom_widgets/icon_content.dart';
 import 'custom_widgets/reuseable_card.dart';
 import 'custom_widgets/constants.dart';
+import 'custom_widgets/bottombutton.dart';
+import 'custom_widgets/round_button_icon.dart';
 
 enum Gender { male, female }
 int height = 180;
@@ -189,53 +191,18 @@ class _InputPageState extends State<InputPage> {
             )
           ],
         )),
-        GestureDetector(
-          onTap: () {
+        BottomButton(
+          (){
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context)=>ResultPage()),
+              MaterialPageRoute(builder: (context) => ResultPage()),
             );
           },
-          child: Container(
-            child: Center(
-              child: Text(
-                'Calculate',
-                style: largeTextButton
-              ),
-            ),
-            color: Color(bottomContainerColour),
-            margin: EdgeInsets.all(10.0),
-            width: double.infinity,
-            height: bottomContainerHeight,
-          ),
-        )
+          'Calculate'
+        ),
+        
       ],
     );
   }
 }
 
-//creating a custom widget (createing a button)
-
-class RoundIconButton extends StatelessWidget {
-  RoundIconButton({this.icon, this.onPressed});
-  final IconData? icon;
-  final Function()? onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      child: Icon(
-        icon,
-        color: Colors.white,
-      ),
-      onPressed: onPressed,
-      elevation: 0.0,
-      shape: CircleBorder(),
-      fillColor: Color(0xFF4C4F5E),
-      constraints: BoxConstraints.tightFor(
-        width: 40.0,
-        height: 40.0,
-      ),
-    );
-  }
-}
